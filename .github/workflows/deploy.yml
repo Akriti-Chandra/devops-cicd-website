@@ -40,7 +40,11 @@ jobs:
         with:
           role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
           aws-region: eu-north-1
-
+          
+      - name: Check AWS identity
+        run: |
+          aws sts get-caller-identity
+          
       - name: Deploy to S3
         run: |
           aws s3 sync build/ s3://akriti-devops-cicd-website-2026 
