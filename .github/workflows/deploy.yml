@@ -29,6 +29,12 @@ jobs:
           mkdir build
           cp index.html style.css script.js build/
 
+      - name: Debug OIDC
+        run: |
+          echo "Repository: ${{ github.repository }}"
+          echo "Branch: ${{ github.ref }}"
+          echo "Actor: ${{ github.actor }}"
+
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
